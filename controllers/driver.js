@@ -317,14 +317,17 @@ module.exports = {
             res.json("Some Error Occured!");
         });
     },
+
     async locupd(req, res, next) {
         const reqData = req.body;
         Driver.update({
+            lattitude: reqData.latitude,
+            longitude: reqData.longitude
+        }, {
             where: {
-                lattitude: reqData.latitude,
-                longitude: reqData.longitude,
+                id: req.body.id
             }
-        }).then(resp=>{
+        }).then(resp => {
             res.json('okoko')
         })
     },
