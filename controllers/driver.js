@@ -321,8 +321,8 @@ module.exports = {
         const reqData = req.body;
         Driver.update({
             where: {
-                lattitude: reqDate.latitude,
-                longitude: reqDate.longitude,
+                lattitude: reqData.latitude,
+                longitude: reqData.longitude,
             }
         }).then(resp=>{
             res.json('okoko')
