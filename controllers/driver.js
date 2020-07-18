@@ -13,7 +13,7 @@ module.exports = {
 
     async createDriver(req, res, next) {
         try {
-         
+
             const {
                 firstName,
                 lastName,
@@ -90,7 +90,7 @@ module.exports = {
             where: {
                 email: req.body.email
             },
-            include: [{model: Vehicle}]
+            include: [{ model: Vehicle }]
         }).then(isDriverExist => {
             if (isDriverExist) {
                 const verify_password = hashedpassword.verify(
@@ -316,6 +316,16 @@ module.exports = {
             console.log(err);
             res.json("Some Error Occured!");
         });
-    }
-
+    },
+    async locupd(req, res, next) {
+        const reqData = req.body;
+        Driver.update({
+            where: {
+                lattitude: reqDate.latitude,
+                longitude: reqDate.longitude,
+            }
+        }).then(resp=>{
+            res.json('okoko')
+        })
+    },
 };
